@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 0;
+        }
+        input[type="text"] {
+            width: 400px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .answer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ask a Question About a Medicine</h2>
+
+    <form method="POST">
+        <input type="text" name="question" placeholder="e.g., What are the side effects of Metformin?" required>
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if answer %}
+    <div class="answer">
+        <h3>💡 Answer:</h3>
+        <p>{{ answer }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
