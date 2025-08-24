@@ -23,6 +23,21 @@
             background-color: #f4f4f4;
             border-left: 4px solid #4CAF50;
         }
+        .sources {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fafafa;
+            border-left: 4px solid #2196F3;
+        }
+        .sources li {
+            margin-bottom: 8px;
+        }
+        .error {
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            border-left: 4px solid #b91c1c;
+        }
     </style>
 </head>
 <body>
@@ -33,10 +48,27 @@
         <button type="submit">Ask</button>
     </form>
 
+    {% if error %}
+      <div class="error">
+        <strong>Error:</strong> {{ error }}
+      </div>
+    {% endif %}
+
     {% if answer %}
     <div class="answer">
         <h3>💡 Answer:</h3>
         <p>{{ answer }}</p>
+    </div>
+    {% endif %}
+
+    {% if sources %}
+    <div class="sources">
+        <h3>Top Sources</h3>
+        <ul>
+            {% for s in sources %}
+            <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
     </div>
     {% endif %}
 </body>
